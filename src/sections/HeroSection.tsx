@@ -40,7 +40,7 @@ export default function HeroSection() {
             position: 'absolute',
             inset: 0,
             backgroundImage:
-              'url(https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=1800&q=80)',
+              'url(/images/TEAMS.jpeg)',
             backgroundSize: 'cover',
             backgroundPosition: 'center right',
           }}
