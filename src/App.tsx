@@ -8,7 +8,7 @@ import TeamPhotoSection from './sections/TeamPhotoSection';
 import ARSSection from './sections/ARSSection';
 import StatsSection from './sections/StatsSection';
 import ProcessSection from './sections/ProcessSection';
-import PromoSection from './sections/PromoSection';
+
 import TestimonialsSection from './sections/TestimonialsSection';
 import ContactSection from './sections/ContactSection';
 import Footer from './sections/Footer';
@@ -25,7 +25,6 @@ function App() {
       <TeamPhotoSection />
       <ARSSection />
       <ProcessSection />
-      <PromoSection />
       <TestimonialsSection />
       <ContactSection />
       <Footer />
