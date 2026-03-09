@@ -1,3 +1,4 @@
+// LocationsSection — Two branches display
 import { motion } from 'framer-motion';
 import SectionLabel from '../components/SectionLabel';
 
