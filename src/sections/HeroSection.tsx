@@ -17,7 +17,7 @@ const avatars = [
 
 export default function HeroSection() {
   return (
-    <section className="hero-section-outer" style={{ padding: '96px 24px 0', background: 'var(--bg-base)' }}>
+    <section className="hero-section-outer" style={{ padding: '110px 24px 0', background: 'var(--bg-base)' }}>
       <div
         className="hero-container"
         style={{
@@ -68,7 +68,7 @@ export default function HeroSection() {
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
-            padding: '0 56px',
+            padding: '40px 56px 0',
             maxWidth: 680,
           }}
         >
