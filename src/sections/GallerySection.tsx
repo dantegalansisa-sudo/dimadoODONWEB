@@ -2,14 +2,13 @@ import { motion } from 'framer-motion';
 import SectionLabel from '../components/SectionLabel';
 
 const photos = [
-  { src: '/images/consultorio1.jpg', placeholder: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&q=80' },
-  { src: '/images/consultorio2.jpg', placeholder: 'https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=600&q=80' },
-  { src: '/images/consultorio3.jpg', placeholder: 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=600&q=80' },
-  { src: '/images/consultorio4.jpg', placeholder: 'https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=600&q=80' },
-  { src: '/images/consultorio5.jpg', placeholder: 'https://images.unsplash.com/photo-1571772996211-2f02c9727629?w=600&q=80' },
-  { src: '/images/consultorio6.jpg', placeholder: 'https://images.unsplash.com/photo-1598256989800-fe5f95da9787?w=600&q=80' },
-  { src: '/images/consultorio7.jpg', placeholder: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&q=80' },
-  { src: '/images/consultorio8.jpg', placeholder: 'https://images.unsplash.com/photo-1629909615184-74f495363b67?w=600&q=80' },
+  { src: '/images/consul.jpeg', alt: 'Consultorio Dimado' },
+  { src: '/images/consul1.jpeg', alt: 'Consultorio Dimado 2' },
+  { src: '/images/consul2.jpeg', alt: 'Consultorio Dimado 3' },
+  { src: '/images/consul3.jpeg', alt: 'Consultorio Dimado 4' },
+  { src: '/images/consul4.jpeg', alt: 'Consultorio Dimado 5' },
+  { src: '/images/consul5.jpeg', alt: 'Consultorio Dimado 6' },
+  { src: '/images/consul6areadereseccion.jpeg', alt: 'Área de Recepción Dimado' },
 ];
 
 export default function GallerySection() {
@@ -76,13 +75,8 @@ export default function GallerySection() {
               }}
             >
               <img
-                src={photo.placeholder}
-                alt={`Consultorio Dimado ${i + 1}`}
-                onError={(e) => {
-                  const img = e.currentTarget;
-                  if (img.src !== photo.placeholder) return;
-                  // Already showing placeholder
-                }}
+                src={photo.src}
+                alt={photo.alt}
                 style={{
                   width: '100%',
                   height: '100%',
