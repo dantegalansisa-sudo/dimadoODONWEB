@@ -3,58 +3,73 @@ import SectionLabel from '../components/SectionLabel';
 
 const services = [
   {
-    name: 'Ortodoncia',
-    icon: '😁',
-    desc: 'Brackets y alineadores para una sonrisa perfectamente alineada.',
-    size: 'large' as const,
-    specialist: 'Dra. Pilar Faleta',
-    bg: 'var(--blue-pale)',
-  },
-  {
     name: 'Odontopediatría',
     icon: '👶',
     desc: 'Cuidado dental especializado para niños con más de 20 años de experiencia.',
-    size: 'medium' as const,
+    size: 'large' as const,
     specialist: 'Dra. Rossy García',
     bg: '#F0FFF4',
   },
   {
-    name: 'Limpieza Dental',
-    icon: '🦷',
-    desc: 'Profilaxis profesional. Evaluación GRATIS este mes.',
+    name: 'Ortodoncia (Brackets)',
+    icon: '😁',
+    desc: 'Brackets y alineadores para una sonrisa perfectamente alineada.',
     size: 'medium' as const,
-    specialist: 'Equipo Dimado',
-    promo: 'RD$950',
+    specialist: 'Dra. Pilar Faleta',
+    bg: 'var(--blue-pale)',
+  },
+  {
+    name: 'Periodoncia',
+    icon: '🦷',
+    desc: 'Tratamiento especializado de las encías para una salud bucal completa.',
+    size: 'medium' as const,
+    specialist: 'Especialistas Dimado',
     bg: 'var(--bg-section)',
   },
   {
     name: 'Endodoncia',
     icon: '🔬',
-    desc: 'Tratamiento de conducto sin dolor con tecnología avanzada.',
+    desc: 'Tratamiento de conductos sin dolor con tecnología avanzada.',
     size: 'large' as const,
     specialist: 'Especialistas Dimado',
     bg: 'var(--blue-pale)',
   },
   {
-    name: 'Blanqueamiento',
-    icon: '✨',
-    desc: 'Dientes más blancos en 1 sesión.',
-    size: 'small' as const,
+    name: 'Implantes Dentales',
+    icon: '🔩',
+    desc: 'Reemplaza dientes perdidos con implantes de última generación.',
+    size: 'medium' as const,
+    specialist: 'Especialistas Dimado',
     bg: '#FFFDF0',
   },
   {
-    name: 'Carillas',
+    name: 'Cirugía Maxilofacial',
+    icon: '🏥',
+    desc: 'Procedimientos quirúrgicos especializados del área facial y bucal.',
+    size: 'medium' as const,
+    specialist: 'Especialistas Dimado',
+    bg: '#F9F0FF',
+  },
+  {
+    name: 'Rejuvenecimiento Facial',
+    icon: '✨',
+    desc: 'Tratamientos estéticos faciales para una apariencia renovada y natural.',
+    size: 'small' as const,
+    bg: '#FFF0F5',
+  },
+  {
+    name: 'Estética Dental',
     icon: '💎',
-    desc: 'Transformación completa de tu sonrisa.',
+    desc: 'Carillas, blanqueamiento y diseño de sonrisa personalizado.',
     size: 'small' as const,
     bg: 'var(--bg-section)',
   },
   {
-    name: 'Extracciones',
-    icon: '🩺',
-    desc: 'Procedimientos seguros y sin dolor.',
+    name: 'Rehabilitación Bucal',
+    icon: '🦿',
+    desc: 'Prótesis dentales y rehabilitación oral completa.',
     size: 'small' as const,
-    bg: '#F9F0FF',
+    bg: 'var(--blue-pale)',
   },
 ];
 
@@ -153,28 +168,6 @@ export default function BentoServicesSection() {
                   ...gridSpan,
                 }}
               >
-                {/* Promo badge */}
-                {service.promo && (
-                  <div
-                    style={{
-                      position: 'absolute',
-                      top: 16,
-                      right: 16,
-                      background: '#FEF3C7',
-                      color: '#92400E',
-                      fontFamily: 'var(--font-body)',
-                      fontWeight: 700,
-                      fontSize: 10,
-                      padding: '5px 12px',
-                      borderRadius: 50,
-                      letterSpacing: '0.04em',
-                      textTransform: 'uppercase',
-                    }}
-                  >
-                    OFERTA DEL MES
-                  </div>
-                )}
-
                 {/* Icon */}
                 <div
                   style={{
@@ -212,21 +205,6 @@ export default function BentoServicesSection() {
                 >
                   {service.desc}
                 </p>
-
-                {/* Price */}
-                {service.promo && (
-                  <p
-                    style={{
-                      fontFamily: 'var(--font-display)',
-                      fontSize: 28,
-                      color: 'var(--blue-main)',
-                      fontWeight: 700,
-                      marginBottom: 10,
-                    }}
-                  >
-                    {service.promo}
-                  </p>
-                )}
 
                 {/* Specialist badge */}
                 {service.specialist && (

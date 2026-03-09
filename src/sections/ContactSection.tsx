@@ -267,12 +267,15 @@ export default function ContactSection() {
                 >
                   <option value="">Seleccionar servicio</option>
                   <option>Evaluación General (GRATIS)</option>
-                  <option>Limpieza y Profilaxis (RD$950)</option>
-                  <option>Ortodoncia</option>
                   <option>Odontopediatría</option>
-                  <option>Blanqueamiento</option>
-                  <option>Carillas</option>
-                  <option>Extracción</option>
+                  <option>Ortodoncia (Brackets)</option>
+                  <option>Periodoncia (Encías)</option>
+                  <option>Endodoncia (Conductos)</option>
+                  <option>Implantes Dentales</option>
+                  <option>Cirugía Maxilofacial</option>
+                  <option>Rejuvenecimiento Facial</option>
+                  <option>Estética Dental</option>
+                  <option>Rehabilitación Bucal (Prótesis)</option>
                 </select>
               </div>
 

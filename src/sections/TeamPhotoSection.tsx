@@ -3,12 +3,15 @@ import { useRef } from 'react';
 import SectionLabel from '../components/SectionLabel';
 
 const specialties = [
-  'Ortodoncia',
   'Odontopediatría',
+  'Ortodoncia',
+  'Periodoncia',
   'Endodoncia',
-  'Blanqueamiento',
-  'Carillas',
-  'Limpieza',
+  'Implantes Dentales',
+  'Cirugía Maxilofacial',
+  'Rejuvenecimiento Facial',
+  'Estética Dental',
+  'Rehabilitación Bucal',
 ];
 
 export default function TeamPhotoSection() {

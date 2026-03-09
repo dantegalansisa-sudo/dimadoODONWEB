@@ -1,11 +1,14 @@
 const footerLinks = {
   servicios: [
-    'Ortodoncia',
     'Odontopediatría',
+    'Ortodoncia (Brackets)',
+    'Periodoncia',
     'Endodoncia',
-    'Blanqueamiento',
-    'Carillas',
-    'Limpieza Dental',
+    'Implantes Dentales',
+    'Cirugía Maxilofacial',
+    'Rejuvenecimiento Facial',
+    'Estética Dental',
+    'Rehabilitación Bucal',
   ],
   especialistas: [
     'Dr. Maikel Maleno',
