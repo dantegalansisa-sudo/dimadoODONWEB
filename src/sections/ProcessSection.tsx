@@ -12,7 +12,7 @@ const steps = [
     num: '02',
     icon: '🔍',
     title: 'Evaluación Inicial',
-    desc: 'Evaluación dental GRATIS. Diagnóstico completo de tu salud bucal.',
+    desc: 'Diagnóstico completo de tu salud bucal con nuestros especialistas.',
   },
   {
     num: '03',

@@ -79,7 +79,7 @@ export default function ContactSection() {
               color: 'var(--text-muted)',
             }}
           >
-            Tu primera evaluación es <strong style={{ color: 'var(--blue-mid)' }}>GRATIS</strong>
+            Contáctanos y agenda tu cita hoy
           </p>
         </div>
 
@@ -266,7 +266,7 @@ export default function ContactSection() {
                   onBlur={() => setFocused(null)}
                 >
                   <option value="">Seleccionar servicio</option>
-                  <option>Evaluación General (GRATIS)</option>
+                  <option>Evaluación General</option>
                   <option>Odontopediatría</option>
                   <option>Ortodoncia (Brackets)</option>
                   <option>Periodoncia (Encías)</option>

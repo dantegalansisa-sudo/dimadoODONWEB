@@ -54,7 +54,7 @@ export default function PromoSection() {
               letterSpacing: '0.04em',
             }}
           >
-            INSCRIPCIÓN GRATIS
+            OFERTA ESPECIAL
           </div>
 
           {/* Left — Text */}
@@ -85,7 +85,7 @@ export default function PromoSection() {
                 marginBottom: 12,
               }}
             >
-              Evaluación GRATIS + Profilaxis dental
+              Profilaxis dental profesional
             </h3>
             <p
               style={{
