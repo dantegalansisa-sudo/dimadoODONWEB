@@ -200,6 +200,7 @@ export default function ContactSection() {
                   '/images/PILAR FALETA.jpeg',
                   '/images/ROSSY GARCIA.jpeg',
                   '/images/JAILENNY SANTOS.jpeg',
+                  '/images/Angely  Betances.jpeg',
                 ].map((src, i) => (
                   <img
                     key={i}
@@ -293,6 +294,7 @@ export default function ContactSection() {
                   <option>Dra. Jhoanna Tapia (Periodoncia)</option>
                   <option>Dra. Rossy García (Niños)</option>
                   <option>Dra. Jailenny Santos</option>
+                  <option>Dra. Angely Betances (Cirugía Maxilofacial)</option>
                 </select>
               </div>
 

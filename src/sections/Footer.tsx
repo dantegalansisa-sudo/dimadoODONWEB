@@ -16,6 +16,7 @@ const footerLinks = {
     'Dra. Jhoanna Tapia',
     'Dra. Rossy García',
     'Dra. Jailenny Santos',
+    'Dra. Angely Betances',
   ],
   contacto: [
     '📞 809-738-3233',

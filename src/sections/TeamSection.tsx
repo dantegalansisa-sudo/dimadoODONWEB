@@ -31,6 +31,13 @@ const specialists = [
     placeholder: '/images/JAILENNY SANTOS.jpeg',
     badge: 'ODONTOLOGÍA',
   },
+  {
+    name: 'Dra. Angely Betances',
+    role: 'CIRUJANA MAXILOFACIAL',
+    specialty: 'Cirugía maxilofacial especializada',
+    placeholder: '/images/Angely  Betances.jpeg',
+    badge: 'CIRUGÍA MAXILOFACIAL',
+  },
 ];
 
 export default function TeamSection() {
@@ -65,7 +72,7 @@ export default function TeamSection() {
           className="team-grid"
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)',
+            gridTemplateColumns: 'repeat(5, 1fr)',
             gap: 20,
           }}
         >
