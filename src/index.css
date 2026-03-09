@@ -235,6 +235,11 @@ button {
     grid-template-columns: 1fr !important;
   }
 
+  /* Locations */
+  .locations-grid {
+    grid-template-columns: 1fr !important;
+  }
+
   /* Contact */
   .contact-grid {
     grid-template-columns: 1fr !important;
