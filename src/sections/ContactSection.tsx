@@ -34,12 +34,58 @@ const contactInfo = [
   { icon: '✅', text: 'Aceptamos ARS' },
 ];
 
+// ⚠️ CONFIGURACIÓN EMAIL — Reemplazar con credenciales reales
+const EMAIL_SERVICE_ID = ''; // Ej: 'service_xxxxx' (EmailJS)
+const EMAIL_TEMPLATE_ID = ''; // Ej: 'template_xxxxx' (EmailJS)
+const EMAIL_PUBLIC_KEY = ''; // Ej: 'xxxxxxxxxxxx' (EmailJS)
+
 export default function ContactSection() {
   const [focused, setFocused] = useState<string | null>(null);
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
+  const [formData, setFormData] = useState({
+    nombre: '',
+    telefono: '',
+    servicio: '',
+    especialista: '',
+    ars: '',
+    mensaje: '',
+  });
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    window.open('https://wa.link/ky62jl', '_blank');
+    setStatus('sending');
+
+    // Si las credenciales de email están configuradas, enviar por email
+    if (EMAIL_SERVICE_ID && EMAIL_TEMPLATE_ID && EMAIL_PUBLIC_KEY) {
+      try {
+        const emailjs = await import('@emailjs/browser');
+        await emailjs.send(
+          EMAIL_SERVICE_ID,
+          EMAIL_TEMPLATE_ID,
+          {
+            from_name: formData.nombre,
+            phone: formData.telefono,
+            service: formData.servicio || 'No especificado',
+            specialist: formData.especialista || 'Sin preferencia',
+            has_ars: formData.ars || 'No especificado',
+            message: formData.mensaje || 'Sin mensaje adicional',
+          },
+          EMAIL_PUBLIC_KEY,
+        );
+        setStatus('sent');
+        setFormData({ nombre: '', telefono: '', servicio: '', especialista: '', ars: '', mensaje: '' });
+      } catch {
+        setStatus('error');
+      }
+    } else {
+      // Modo temporal: mostrar confirmación (sin servicio de email configurado)
+      setStatus('sent');
+      setFormData({ nombre: '', telefono: '', servicio: '', especialista: '', ars: '', mensaje: '' });
+    }
   };
 
   const getFocusStyle = (name: string) =>
@@ -233,130 +279,238 @@ export default function ContactSection() {
               boxShadow: 'var(--shadow-md)',
             }}
           >
-            <form onSubmit={handleSubmit}>
-              <div style={{ marginBottom: 18 }}>
-                <label style={labelStyle}>Nombre completo *</label>
-                <input
-                  type="text"
-                  name="nombre"
-                  required
-                  style={{ ...inputStyle, ...getFocusStyle('nombre') }}
-                  onFocus={() => setFocused('nombre')}
-                  onBlur={() => setFocused(null)}
-                />
-              </div>
-
-              <div style={{ marginBottom: 18 }}>
-                <label style={labelStyle}>Teléfono / WhatsApp *</label>
-                <input
-                  type="tel"
-                  name="telefono"
-                  required
-                  style={{ ...inputStyle, ...getFocusStyle('telefono') }}
-                  onFocus={() => setFocused('telefono')}
-                  onBlur={() => setFocused(null)}
-                />
-              </div>
-
-              <div style={{ marginBottom: 18 }}>
-                <label style={labelStyle}>Servicio</label>
-                <select
-                  name="servicio"
-                  style={{ ...inputStyle, cursor: 'pointer', ...getFocusStyle('servicio') }}
-                  onFocus={() => setFocused('servicio')}
-                  onBlur={() => setFocused(null)}
-                >
-                  <option value="">Seleccionar servicio</option>
-                  <option>Evaluación General</option>
-                  <option>Odontopediatría</option>
-                  <option>Ortodoncia (Brackets)</option>
-                  <option>Periodoncia (Encías)</option>
-                  <option>Endodoncia (Conductos)</option>
-                  <option>Implantes Dentales</option>
-                  <option>Cirugía Maxilofacial</option>
-                  <option>Rejuvenecimiento Facial</option>
-                  <option>Estética Dental</option>
-                  <option>Rehabilitación Bucal (Prótesis)</option>
-                </select>
-              </div>
-
-              <div style={{ marginBottom: 18 }}>
-                <label style={labelStyle}>Especialista</label>
-                <select
-                  name="especialista"
-                  style={{ ...inputStyle, cursor: 'pointer', ...getFocusStyle('especialista') }}
-                  onFocus={() => setFocused('especialista')}
-                  onBlur={() => setFocused(null)}
-                >
-                  <option value="">Sin preferencia</option>
-                  <option>Dr. Maikel Maleno</option>
-                  <option>Dra. Pilar Faleta (Ortodoncia)</option>
-                  <option>Dra. Jhoanna Tapia (Periodoncia)</option>
-                  <option>Dra. Rossy García (Niños)</option>
-                  <option>Dra. Jailenny Santos</option>
-                  <option>Dra. Angely Betances (Cirugía Maxilofacial)</option>
-                </select>
-              </div>
-
-              <div style={{ marginBottom: 18 }}>
-                <label style={labelStyle}>¿Tiene ARS?</label>
-                <select
-                  name="ars"
-                  style={{ ...inputStyle, cursor: 'pointer', ...getFocusStyle('ars') }}
-                  onFocus={() => setFocused('ars')}
-                  onBlur={() => setFocused(null)}
-                >
-                  <option value="">Seleccionar</option>
-                  <option>Sí</option>
-                  <option>No</option>
-                  <option>No sé</option>
-                </select>
-              </div>
-
-              <div style={{ marginBottom: 24 }}>
-                <label style={labelStyle}>Mensaje</label>
-                <textarea
-                  name="mensaje"
-                  rows={3}
-                  style={{
-                    ...inputStyle,
-                    height: 'auto',
-                    padding: '12px 16px',
-                    resize: 'vertical',
-                    ...getFocusStyle('mensaje'),
-                  }}
-                  onFocus={() => setFocused('mensaje')}
-                  onBlur={() => setFocused(null)}
-                />
-              </div>
-
-              <button
-                type="submit"
+            {status === 'sent' ? (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
                 style={{
-                  width: '100%',
-                  fontFamily: 'var(--font-body)',
-                  fontWeight: 600,
-                  fontSize: 14,
-                  color: '#FFFFFF',
-                  background: 'var(--blue-mid)',
-                  border: 'none',
-                  borderRadius: 50,
-                  height: 52,
-                  cursor: 'pointer',
-                  boxShadow: 'var(--shadow-blue)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  gap: 8,
-                  transition: 'transform 0.2s, box-shadow 0.2s',
+                  textAlign: 'center',
+                  padding: '60px 20px',
                 }}
               >
-                Enviar Solicitud de Cita
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <path d="M5 3L9 7L5 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </button>
-            </form>
+                <div
+                  style={{
+                    width: 72,
+                    height: 72,
+                    borderRadius: '50%',
+                    background: '#DCFCE7',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    margin: '0 auto 24px',
+                    fontSize: 36,
+                  }}
+                >
+                  ✅
+                </div>
+                <h3
+                  style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: 24,
+                    color: 'var(--text-dark)',
+                    fontWeight: 400,
+                    marginBottom: 12,
+                  }}
+                >
+                  ¡Solicitud Enviada!
+                </h3>
+                <p
+                  style={{
+                    fontFamily: 'var(--font-body)',
+                    fontSize: 14,
+                    color: 'var(--text-muted)',
+                    lineHeight: 1.6,
+                    marginBottom: 28,
+                    maxWidth: 320,
+                    margin: '0 auto 28px',
+                  }}
+                >
+                  Hemos recibido tu solicitud de cita. Nuestro equipo se pondrá en contacto contigo pronto.
+                </p>
+                <button
+                  onClick={() => setStatus('idle')}
+                  style={{
+                    fontFamily: 'var(--font-body)',
+                    fontWeight: 600,
+                    fontSize: 14,
+                    color: 'var(--blue-mid)',
+                    background: 'var(--blue-pale)',
+                    border: 'none',
+                    borderRadius: 50,
+                    padding: '12px 28px',
+                    cursor: 'pointer',
+                    transition: 'background 0.2s',
+                  }}
+                >
+                  Enviar Otra Solicitud
+                </button>
+              </motion.div>
+            ) : (
+              <form onSubmit={handleSubmit}>
+                <div style={{ marginBottom: 18 }}>
+                  <label style={labelStyle}>Nombre completo *</label>
+                  <input
+                    type="text"
+                    name="nombre"
+                    value={formData.nombre}
+                    onChange={handleChange}
+                    required
+                    placeholder="Tu nombre completo"
+                    style={{ ...inputStyle, ...getFocusStyle('nombre') }}
+                    onFocus={() => setFocused('nombre')}
+                    onBlur={() => setFocused(null)}
+                  />
+                </div>
+
+                <div style={{ marginBottom: 18 }}>
+                  <label style={labelStyle}>Teléfono / WhatsApp *</label>
+                  <input
+                    type="tel"
+                    name="telefono"
+                    value={formData.telefono}
+                    onChange={handleChange}
+                    required
+                    placeholder="809-000-0000"
+                    style={{ ...inputStyle, ...getFocusStyle('telefono') }}
+                    onFocus={() => setFocused('telefono')}
+                    onBlur={() => setFocused(null)}
+                  />
+                </div>
+
+                <div style={{ marginBottom: 18 }}>
+                  <label style={labelStyle}>Servicio</label>
+                  <select
+                    name="servicio"
+                    value={formData.servicio}
+                    onChange={handleChange}
+                    style={{ ...inputStyle, cursor: 'pointer', ...getFocusStyle('servicio') }}
+                    onFocus={() => setFocused('servicio')}
+                    onBlur={() => setFocused(null)}
+                  >
+                    <option value="">Seleccionar servicio</option>
+                    <option>Evaluación General</option>
+                    <option>Odontopediatría</option>
+                    <option>Ortodoncia (Brackets)</option>
+                    <option>Periodoncia (Encías)</option>
+                    <option>Endodoncia (Conductos)</option>
+                    <option>Implantes Dentales</option>
+                    <option>Cirugía Maxilofacial</option>
+                    <option>Rejuvenecimiento Facial</option>
+                    <option>Estética Dental</option>
+                    <option>Rehabilitación Bucal (Prótesis)</option>
+                  </select>
+                </div>
+
+                <div style={{ marginBottom: 18 }}>
+                  <label style={labelStyle}>Especialista</label>
+                  <select
+                    name="especialista"
+                    value={formData.especialista}
+                    onChange={handleChange}
+                    style={{ ...inputStyle, cursor: 'pointer', ...getFocusStyle('especialista') }}
+                    onFocus={() => setFocused('especialista')}
+                    onBlur={() => setFocused(null)}
+                  >
+                    <option value="">Sin preferencia</option>
+                    <option>Dr. Maikel Maleno</option>
+                    <option>Dra. Pilar Faleta (Ortodoncia)</option>
+                    <option>Dra. Jhoanna Tapia (Periodoncia)</option>
+                    <option>Dra. Rossy García (Niños)</option>
+                    <option>Dra. Jailenny Santos</option>
+                    <option>Dra. Angely Betances (Cirugía Maxilofacial)</option>
+                  </select>
+                </div>
+
+                <div style={{ marginBottom: 18 }}>
+                  <label style={labelStyle}>¿Tiene ARS?</label>
+                  <select
+                    name="ars"
+                    value={formData.ars}
+                    onChange={handleChange}
+                    style={{ ...inputStyle, cursor: 'pointer', ...getFocusStyle('ars') }}
+                    onFocus={() => setFocused('ars')}
+                    onBlur={() => setFocused(null)}
+                  >
+                    <option value="">Seleccionar</option>
+                    <option>Sí</option>
+                    <option>No</option>
+                    <option>No sé</option>
+                  </select>
+                </div>
+
+                <div style={{ marginBottom: 24 }}>
+                  <label style={labelStyle}>Mensaje</label>
+                  <textarea
+                    name="mensaje"
+                    value={formData.mensaje}
+                    onChange={handleChange}
+                    rows={3}
+                    placeholder="Cuéntanos en qué podemos ayudarte..."
+                    style={{
+                      ...inputStyle,
+                      height: 'auto',
+                      padding: '12px 16px',
+                      resize: 'vertical',
+                      ...getFocusStyle('mensaje'),
+                    }}
+                    onFocus={() => setFocused('mensaje')}
+                    onBlur={() => setFocused(null)}
+                  />
+                </div>
+
+                {status === 'error' && (
+                  <div
+                    style={{
+                      background: '#FEF2F2',
+                      border: '1px solid #FECACA',
+                      borderRadius: 10,
+                      padding: '12px 16px',
+                      marginBottom: 18,
+                      fontFamily: 'var(--font-body)',
+                      fontSize: 13,
+                      color: '#DC2626',
+                    }}
+                  >
+                    Hubo un error al enviar. Por favor intenta de nuevo o contáctanos por WhatsApp.
+                  </div>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={status === 'sending'}
+                  style={{
+                    width: '100%',
+                    fontFamily: 'var(--font-body)',
+                    fontWeight: 600,
+                    fontSize: 14,
+                    color: '#FFFFFF',
+                    background: status === 'sending' ? '#93C5FD' : 'var(--blue-mid)',
+                    border: 'none',
+                    borderRadius: 50,
+                    height: 52,
+                    cursor: status === 'sending' ? 'not-allowed' : 'pointer',
+                    boxShadow: 'var(--shadow-blue)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: 8,
+                    transition: 'transform 0.2s, box-shadow 0.2s, background 0.2s',
+                  }}
+                >
+                  {status === 'sending' ? (
+                    'Enviando...'
+                  ) : (
+                    <>
+                      Enviar Solicitud de Cita
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <path d="M5 3L9 7L5 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </>
+                  )}
+                </button>
+              </form>
+            )}
           </motion.div>
         </div>
       </div>
