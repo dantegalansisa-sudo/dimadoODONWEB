@@ -11,10 +11,10 @@ const specialists = [
   },
   {
     name: 'Dra. Jhoanna Tapia',
-    role: 'ESPECIALISTA EN ORTODONCIA',
-    specialty: 'Tratamientos ortodóncicos avanzados',
+    role: 'PERIODONCISTA',
+    specialty: 'Tratamiento especializado de encías',
     placeholder: '/images/Jhoanna Tapia.jpeg',
-    badge: 'ORTODONCIA',
+    badge: 'PERIODONCIA',
   },
   {
     name: 'Dra. Rossy García',

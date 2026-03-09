@@ -290,7 +290,7 @@ export default function ContactSection() {
                   <option value="">Sin preferencia</option>
                   <option>Dr. Maikel Maleno</option>
                   <option>Dra. Pilar Faleta (Ortodoncia)</option>
-                  <option>Dra. Jhoanna Tapia (Ortodoncia)</option>
+                  <option>Dra. Jhoanna Tapia (Periodoncia)</option>
                   <option>Dra. Rossy García (Niños)</option>
                   <option>Dra. Jailenny Santos</option>
                 </select>
