@@ -13,6 +13,51 @@ export default function ARSSection() {
   return (
     <section id="ars" style={{ padding: '80px 0', background: 'var(--blue-main)' }}>
       <div className="container">
+        {/* ALERTA — No recibimos ARS temporalmente */}
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          style={{
+            background: '#FEF3C7',
+            border: '2px solid #F59E0B',
+            borderRadius: 16,
+            padding: '20px 28px',
+            marginBottom: 40,
+            display: 'flex',
+            alignItems: 'center',
+            gap: 14,
+            maxWidth: 700,
+            margin: '0 auto 40px',
+          }}
+        >
+          <span style={{ fontSize: 28, flexShrink: 0 }}>⚠️</span>
+          <div>
+            <p
+              style={{
+                fontFamily: 'var(--font-body)',
+                fontWeight: 700,
+                fontSize: 15,
+                color: '#92400E',
+                marginBottom: 4,
+              }}
+            >
+              Aviso Importante
+            </p>
+            <p
+              style={{
+                fontFamily: 'var(--font-body)',
+                fontSize: 14,
+                color: '#92400E',
+                lineHeight: 1.5,
+              }}
+            >
+              No estamos recibiendo seguros médicos hasta nuevo aviso. Disculpe las molestias.
+            </p>
+          </div>
+        </motion.div>
+
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: 48 }}>
           <motion.div
@@ -66,6 +111,8 @@ export default function ARSSection() {
             gap: 12,
             maxWidth: 700,
             margin: '0 auto 48px',
+            opacity: 0.5,
+            pointerEvents: 'none',
           }}
         >
           {arsProviders.map((ars, i) => (
@@ -75,13 +122,11 @@ export default function ARSSection() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.07, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              whileHover={{ background: 'rgba(255,255,255,0.2)', scale: 1.03 }}
               style={{
                 background: 'rgba(255,255,255,0.1)',
                 borderRadius: 12,
                 padding: 20,
                 textAlign: 'center',
-                cursor: 'pointer',
                 transition: 'background 0.2s',
               }}
             >

@@ -109,7 +109,7 @@ export default function HeroSection() {
                 letterSpacing: '0.05em',
               }}
             >
-              CONSULTAS DISPONIBLES · PLAZA LIAM
+              CONSULTAS DISPONIBLES · PLAZA LIAM · LOS GIRASOLES
             </span>
           </motion.div>
 
