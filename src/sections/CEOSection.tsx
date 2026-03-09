@@ -183,7 +183,7 @@ export default function CEOSection() {
             />
 
             <img
-              src="/images/CEO.jpeg"
+              src="/images/ceoo.jpeg"
               alt="Dr. Maikel Maleno"
               style={{
                 width: '100%',

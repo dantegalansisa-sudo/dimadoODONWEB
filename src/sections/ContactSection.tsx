@@ -242,7 +242,7 @@ export default function ContactSection() {
               {/* Mini team avatars */}
               <div style={{ display: 'flex', marginTop: 8 }}>
                 {[
-                  '/images/CEO.jpeg',
+                  '/images/ceoo.jpeg',
                   '/images/PILAR FALETA.jpeg',
                   '/images/ROSSY GARCIA.jpeg',
                   '/images/JAILENNY SANTOS.jpeg',

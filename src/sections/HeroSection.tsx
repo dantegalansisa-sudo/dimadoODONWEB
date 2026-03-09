@@ -469,7 +469,7 @@ export default function HeroSection() {
             <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
               <div style={{ display: 'flex' }}>
                 {[
-                  '/images/CEO.jpeg',
+                  '/images/ceoo.jpeg',
                   '/images/PILAR FALETA.jpeg',
                   '/images/ROSSY GARCIA.jpeg',
                 ].map((src, i) => (
