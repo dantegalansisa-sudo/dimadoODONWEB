@@ -66,7 +66,7 @@ const services = [
   },
   {
     name: 'Rehabilitación Bucal',
-    icon: '🦿',
+    icon: '🦷',
     desc: 'Prótesis dentales y rehabilitación oral completa.',
     size: 'small' as const,
     bg: 'var(--blue-pale)',
