@@ -11,6 +11,7 @@ import ProcessSection from './sections/ProcessSection';
 import LocationsSection from './sections/LocationsSection';
 import GallerySection from './sections/GallerySection';
 import TestimonialsSection from './sections/TestimonialsSection';
+import LocationImageSection from './sections/LocationImageSection';
 import ContactSection from './sections/ContactSection';
 import Footer from './sections/Footer';
 
@@ -29,6 +30,7 @@ function App() {
       <TestimonialsSection />
       <LocationsSection />
       <GallerySection />
+      <LocationImageSection />
       <ContactSection />
       <Footer />
       <WhatsAppButton />
