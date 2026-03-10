@@ -30,6 +30,7 @@ const contactInfo = [
   { icon: '📞', text: '809-738-3233 / 809-561-5640' },
   { icon: '📱', text: 'WhatsApp: 829-933-9036 / 829-812-0499' },
   { icon: '📍', text: 'Av. Monumental, Plaza Liam, Primer Nivel' },
+  { icon: '📧', text: 'dimadocentroodont@hotmail.com' },
   { icon: '📷', text: '@dimadocentroodontologico' },
   { icon: '✅', text: 'Aceptamos ARS' },
 ];
