@@ -6,7 +6,7 @@ const locations = [
   {
     label: 'SUCURSAL MATRIZ',
     name: 'Los Girasoles',
-    address: 'Calle Emma Balaguer #17, Los Girasoles, Segundo Nivel',
+    address: 'Calle Emma Balaguer #17, Los Girasoles, Primer Nivel',
     phone: '809-561-5640',
     whatsapp: '829-812-0499',
     waLink: 'https://wa.me/18298120499?text=Hola%20Dimado!%20Quiero%20agendar%20una%20cita%20en%20la%20sucursal%20de%20Los%20Girasoles.',
@@ -16,7 +16,7 @@ const locations = [
   {
     label: 'SUCURSAL 2',
     name: 'Plaza Liam',
-    address: 'Av. Monumental, Plaza Liam, Primer Nivel',
+    address: 'Av. Monumental, Plaza Liam, Primer Nivel, Local 101',
     phone: '809-738-3233',
     whatsapp: '829-933-9036',
     waLink: 'https://wa.me/18299339036?text=Hola%20Dimado!%20Quiero%20agendar%20una%20cita%20en%20Plaza%20Liam.',
