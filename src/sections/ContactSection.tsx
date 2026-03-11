@@ -35,11 +35,6 @@ const contactInfo = [
   { icon: '✅', text: 'Aceptamos ARS' },
 ];
 
-// ⚠️ CONFIGURACIÓN EMAIL — Reemplazar con credenciales reales
-const EMAIL_SERVICE_ID = ''; // Ej: 'service_xxxxx' (EmailJS)
-const EMAIL_TEMPLATE_ID = ''; // Ej: 'template_xxxxx' (EmailJS)
-const EMAIL_PUBLIC_KEY = ''; // Ej: 'xxxxxxxxxxxx' (EmailJS)
-
 export default function ContactSection() {
   const [focused, setFocused] = useState<string | null>(null);
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
@@ -56,37 +51,31 @@ export default function ContactSection() {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = async (e: FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     setStatus('sending');
 
-    // Si las credenciales de email están configuradas, enviar por email
-    if (EMAIL_SERVICE_ID && EMAIL_TEMPLATE_ID && EMAIL_PUBLIC_KEY) {
-      try {
-        const emailjs = await import('@emailjs/browser');
-        await emailjs.send(
-          EMAIL_SERVICE_ID,
-          EMAIL_TEMPLATE_ID,
-          {
-            from_name: formData.nombre,
-            phone: formData.telefono,
-            service: formData.servicio || 'No especificado',
-            specialist: formData.especialista || 'Sin preferencia',
-            has_ars: formData.ars || 'No especificado',
-            message: formData.mensaje || 'Sin mensaje adicional',
-          },
-          EMAIL_PUBLIC_KEY,
-        );
-        setStatus('sent');
-        setFormData({ nombre: '', telefono: '', servicio: '', especialista: '', ars: '', mensaje: '' });
-      } catch {
-        setStatus('error');
-      }
-    } else {
-      // Modo temporal: mostrar confirmación (sin servicio de email configurado)
-      setStatus('sent');
-      setFormData({ nombre: '', telefono: '', servicio: '', especialista: '', ars: '', mensaje: '' });
+    // Construir mensaje de WhatsApp con todos los datos del formulario
+    const lines = [
+      '📋 *SOLICITUD DE CITA — DIMADO*',
+      '',
+      `👤 *Nombre:* ${formData.nombre}`,
+      `📱 *Teléfono:* ${formData.telefono}`,
+      `🦷 *Servicio:* ${formData.servicio || 'No especificado'}`,
+      `👩‍⚕️ *Especialista:* ${formData.especialista || 'Sin preferencia'}`,
+      `✅ *¿Tiene ARS?:* ${formData.ars || 'No especificado'}`,
+    ];
+
+    if (formData.mensaje) {
+      lines.push(`💬 *Mensaje:* ${formData.mensaje}`);
     }
+
+    const msg = encodeURIComponent(lines.join('\n'));
+    const waUrl = `https://wa.me/18299339036?text=${msg}`;
+
+    window.open(waUrl, '_blank');
+    setStatus('sent');
+    setFormData({ nombre: '', telefono: '', servicio: '', especialista: '', ars: '', mensaje: '' });
   };
 
   const getFocusStyle = (name: string) =>
