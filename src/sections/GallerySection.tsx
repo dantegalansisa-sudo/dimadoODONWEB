@@ -1,15 +1,91 @@
 import { motion } from 'framer-motion';
 import SectionLabel from '../components/SectionLabel';
 
-const photos = [
-  { src: '/images/consul.jpeg', alt: 'Consultorio Dimado' },
-  { src: '/images/consul1.jpeg', alt: 'Consultorio Dimado 2' },
-  { src: '/images/consul2.jpeg', alt: 'Consultorio Dimado 3' },
-  { src: '/images/consul3.jpeg', alt: 'Consultorio Dimado 4' },
-  { src: '/images/consul4.jpeg', alt: 'Consultorio Dimado 5' },
-  { src: '/images/consul5.jpeg', alt: 'Consultorio Dimado 6' },
-  { src: '/images/consul6areadereseccion.jpeg', alt: 'Área de Recepción Dimado' },
+const photosMonumental = [
+  { src: '/images/consul.jpeg', alt: 'Sucursal Monumental' },
+  { src: '/images/consul1.jpeg', alt: 'Sucursal Monumental' },
+  { src: '/images/consul2.jpeg', alt: 'Sucursal Monumental' },
+  { src: '/images/consul6areadereseccion.jpeg', alt: 'Recepción — Sucursal Monumental' },
 ];
+
+const photosGirasoles = [
+  { src: '/images/girasoles1.jpeg', alt: 'Sucursal Los Girasoles' },
+  { src: '/images/girasoles2.jpeg', alt: 'Sucursal Los Girasoles' },
+  { src: '/images/girasoles3.jpeg', alt: 'Sucursal Los Girasoles' },
+  { src: '/images/girasoles4.jpeg', alt: 'Sucursal Los Girasoles' },
+];
+
+function GalleryPhoto({ photo, delay }: { photo: { src: string; alt: string }; delay: number }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.95 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true, margin: '-40px' }}
+      transition={{
+        delay,
+        duration: 0.5,
+        ease: [0.16, 1, 0.3, 1] as const,
+      }}
+      style={{
+        position: 'relative',
+        aspectRatio: '1 / 1',
+        borderRadius: 14,
+        overflow: 'hidden',
+        cursor: 'pointer',
+      }}
+    >
+      <img
+        src={photo.src}
+        alt={photo.alt}
+        style={{
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          filter: 'brightness(1.15) contrast(1.05) saturate(1.1)',
+          transition: 'transform 0.4s ease, filter 0.4s ease',
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.transform = 'scale(1.05)';
+          const overlay = e.currentTarget.nextElementSibling as HTMLElement;
+          if (overlay) overlay.style.opacity = '1';
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.transform = 'scale(1)';
+          const overlay = e.currentTarget.nextElementSibling as HTMLElement;
+          if (overlay) overlay.style.opacity = '0';
+        }}
+      />
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'rgba(21, 101, 192, 0.25)',
+          opacity: 0,
+          transition: 'opacity 0.4s ease',
+          pointerEvents: 'none',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <div
+          style={{
+            width: 44,
+            height: 44,
+            borderRadius: '50%',
+            background: 'rgba(255,255,255,0.9)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: 20,
+          }}
+        >
+          🔍
+        </div>
+      </div>
+    </motion.div>
+  );
+}
 
 export default function GallerySection() {
   return (
@@ -46,7 +122,70 @@ export default function GallerySection() {
           </p>
         </div>
 
-        {/* Gallery Grid */}
+        {/* Sucursal Monumental */}
+        <motion.h3
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          style={{
+            fontFamily: 'var(--font-body)',
+            fontWeight: 600,
+            fontSize: 14,
+            color: 'var(--blue-main)',
+            letterSpacing: '0.05em',
+            textTransform: 'uppercase',
+            marginBottom: 16,
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: 8,
+            background: 'var(--blue-pale)',
+            padding: '8px 18px',
+            borderRadius: 50,
+          }}
+        >
+          <span style={{ fontSize: 16 }}>📍</span>
+          Sucursal Plaza Liam — Av. Monumental
+        </motion.h3>
+        <div
+          className="gallery-grid"
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(4, 1fr)',
+            gap: 12,
+            marginBottom: 48,
+          }}
+        >
+          {photosMonumental.map((photo, i) => (
+            <GalleryPhoto key={`m-${i}`} photo={photo} delay={i * 0.06} />
+          ))}
+        </div>
+
+        {/* Sucursal Los Girasoles */}
+        <motion.h3
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          style={{
+            fontFamily: 'var(--font-body)',
+            fontWeight: 600,
+            fontSize: 14,
+            color: 'var(--cyan)',
+            letterSpacing: '0.05em',
+            textTransform: 'uppercase',
+            marginBottom: 16,
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: 8,
+            background: '#E0F7FA',
+            padding: '8px 18px',
+            borderRadius: 50,
+          }}
+        >
+          <span style={{ fontSize: 16 }}>📍</span>
+          Sucursal Los Girasoles
+        </motion.h3>
         <div
           className="gallery-grid"
           style={{
@@ -55,76 +194,8 @@ export default function GallerySection() {
             gap: 12,
           }}
         >
-          {photos.map((photo, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: '-40px' }}
-              transition={{
-                delay: i * 0.06,
-                duration: 0.5,
-                ease: [0.16, 1, 0.3, 1] as const,
-              }}
-              style={{
-                position: 'relative',
-                aspectRatio: '1 / 1',
-                borderRadius: 14,
-                overflow: 'hidden',
-                cursor: 'pointer',
-              }}
-            >
-              <img
-                src={photo.src}
-                alt={photo.alt}
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  filter: 'brightness(1.15) contrast(1.05) saturate(1.1)',
-                  transition: 'transform 0.4s ease, filter 0.4s ease',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'scale(1.05)';
-                  const overlay = e.currentTarget.nextElementSibling as HTMLElement;
-                  if (overlay) overlay.style.opacity = '1';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'scale(1)';
-                  const overlay = e.currentTarget.nextElementSibling as HTMLElement;
-                  if (overlay) overlay.style.opacity = '0';
-                }}
-              />
-              {/* Hover overlay */}
-              <div
-                style={{
-                  position: 'absolute',
-                  inset: 0,
-                  background: 'rgba(21, 101, 192, 0.25)',
-                  opacity: 0,
-                  transition: 'opacity 0.4s ease',
-                  pointerEvents: 'none',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
-              >
-                <div
-                  style={{
-                    width: 44,
-                    height: 44,
-                    borderRadius: '50%',
-                    background: 'rgba(255,255,255,0.9)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: 20,
-                  }}
-                >
-                  🔍
-                </div>
-              </div>
-            </motion.div>
+          {photosGirasoles.map((photo, i) => (
+            <GalleryPhoto key={`g-${i}`} photo={photo} delay={i * 0.06} />
           ))}
         </div>
       </div>
