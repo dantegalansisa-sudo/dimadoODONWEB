@@ -25,7 +25,7 @@ export default function HeroSection() {
           borderRadius: 24,
           overflow: 'hidden',
           height: '85vh',
-          minHeight: 600,
+          minHeight: 650,
           maxHeight: 900,
           background: 'var(--bg-white)',
         }}
@@ -68,7 +68,7 @@ export default function HeroSection() {
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
-            padding: '40px 56px 0',
+            padding: '40px 56px 40px',
             maxWidth: 680,
           }}
         >
