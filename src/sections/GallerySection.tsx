@@ -81,7 +81,8 @@ export default function GallerySection() {
                   width: '100%',
                   height: '100%',
                   objectFit: 'cover',
-                  transition: 'transform 0.4s ease',
+                  filter: 'brightness(1.15) contrast(1.05) saturate(1.1)',
+                  transition: 'transform 0.4s ease, filter 0.4s ease',
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'scale(1.05)';
