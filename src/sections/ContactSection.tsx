@@ -157,25 +157,16 @@ export default function ContactSection() {
           >
             {/* Logo */}
             <div style={{ marginBottom: 28 }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 4, marginBottom: 16 }}>
-                <span
+              <div style={{ marginBottom: 16 }}>
+                <img
+                  src="/images/logo real.jpeg"
+                  alt="Dimado Centro Odontológico"
                   style={{
-                    width: 10,
-                    height: 10,
-                    borderRadius: '50%',
-                    background: 'var(--cyan)',
-                    display: 'inline-block',
+                    height: 44,
+                    objectFit: 'contain',
+                    borderRadius: 6,
                   }}
                 />
-                <span
-                  style={{
-                    fontFamily: 'var(--font-display)',
-                    fontSize: 22,
-                    color: '#FFFFFF',
-                  }}
-                >
-                  imado
-                </span>
               </div>
 
               <div

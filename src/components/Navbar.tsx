@@ -53,41 +53,15 @@ export default function Navbar() {
         className="nav-inner"
       >
         {/* Logo */}
-        <a href="#inicio" style={{ display: 'flex', alignItems: 'center', gap: 3 }}>
-          <span
+        <a href="#inicio" style={{ display: 'flex', alignItems: 'center' }}>
+          <img
+            src="/images/logo real.jpeg"
+            alt="Dimado Centro Odontológico, E.I.R.L."
             style={{
-              width: 10,
-              height: 10,
-              borderRadius: '50%',
-              background: 'var(--blue-mid)',
-              display: 'inline-block',
+              height: 48,
+              objectFit: 'contain',
             }}
           />
-          <span
-            style={{
-              fontFamily: 'var(--font-display)',
-              fontSize: 22,
-              color: 'var(--text-dark)',
-              fontWeight: 400,
-            }}
-          >
-            imado
-          </span>
-          <span
-            style={{
-              fontFamily: 'var(--font-body)',
-              fontSize: 9,
-              color: 'var(--text-muted)',
-              marginLeft: 6,
-              letterSpacing: '0.02em',
-              lineHeight: 1.2,
-              display: 'flex',
-              flexDirection: 'column',
-            }}
-          >
-            <span>Centro Odontológico,</span>
-            <span>E.I.R.L.</span>
-          </span>
         </a>
 
         {/* Desktop links */}

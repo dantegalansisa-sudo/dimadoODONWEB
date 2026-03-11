@@ -47,25 +47,16 @@ export default function Footer() {
         >
           {/* Logo column */}
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 4, marginBottom: 14 }}>
-              <span
+            <div style={{ marginBottom: 14 }}>
+              <img
+                src="/images/logo real.jpeg"
+                alt="Dimado Centro Odontológico"
                 style={{
-                  width: 10,
-                  height: 10,
-                  borderRadius: '50%',
-                  background: 'var(--cyan)',
-                  display: 'inline-block',
+                  height: 40,
+                  objectFit: 'contain',
+                  borderRadius: 6,
                 }}
               />
-              <span
-                style={{
-                  fontFamily: 'var(--font-display)',
-                  fontSize: 22,
-                  color: '#FFFFFF',
-                }}
-              >
-                imado
-              </span>
             </div>
             <p
               style={{
