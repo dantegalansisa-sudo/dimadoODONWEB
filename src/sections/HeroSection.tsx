@@ -27,7 +27,7 @@ export default function HeroSection() {
           height: '92vh',
           minHeight: 700,
           maxHeight: 1100,
-          background: '#000',
+          background: '#0D1B2A',
         }}
       >
         {/* Background Video */}
@@ -52,7 +52,7 @@ export default function HeroSection() {
               height: '100%',
               objectFit: 'contain',
               objectPosition: 'center center',
-              background: '#000',
+              background: '#0D1B2A',
             }}
           >
             <source src="/video/Bienvenidos a nuestra clínica familiar✨️ Dimado Centro Odontologico 🤍 donde cuidamos de ti en t.mp4" type="video/mp4" />
