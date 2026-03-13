@@ -15,7 +15,7 @@ const services = [
     icon: '😁',
     desc: 'Brackets y alineadores para una sonrisa perfectamente alineada.',
     size: 'medium' as const,
-    specialist: 'Dra. Pilar Faleta',
+    specialist: 'Dra. Pilar Falet',
     bg: 'var(--blue-pale)',
   },
   {

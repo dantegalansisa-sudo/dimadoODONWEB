@@ -3,7 +3,7 @@ import SectionLabel from '../components/SectionLabel';
 
 const specialists = [
   {
-    name: 'Dra. Pilar Faleta',
+    name: 'Dra. Pilar Falet',
     role: 'ORTODONCISTA',
     specialty: 'Ortodoncia — Brackets y alineadores',
     placeholder: '/images/PILAR FALETA.jpeg',

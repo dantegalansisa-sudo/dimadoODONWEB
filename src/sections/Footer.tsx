@@ -12,7 +12,7 @@ const footerLinks = {
   ],
   especialistas: [
     'Dr. Maikel Maleno',
-    'Dra. Pilar Faleta',
+    'Dra. Pilar Falet',
     'Dra. Jhoanna Tapia',
     'Dra. Rossy García',
     'Dra. Jailenny Santos',
