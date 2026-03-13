@@ -13,6 +13,7 @@ import GallerySection from './sections/GallerySection';
 import TestimonialsSection from './sections/TestimonialsSection';
 import LocationImageSection from './sections/LocationImageSection';
 import ContactSection from './sections/ContactSection';
+import SecretariasSection from './sections/SecretariasSection';
 import Footer from './sections/Footer';
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
       <CEOSection />
       <StatsSection />
       <TeamSection />
+      <SecretariasSection />
       <TeamPhotoSection />
       <ARSSection />
       <ProcessSection />
