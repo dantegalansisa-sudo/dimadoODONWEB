@@ -228,6 +228,8 @@ export default function ContactSection() {
                   '/images/ROSSY GARCIA.jpeg',
                   '/images/JAILENNY SANTOS.jpeg',
                   '/images/Angely  Betances.jpeg',
+                  '/images/laudi montero, odontóloga general.jpeg',
+                  '/images/Luisa rivera y odontóloga general.jpeg',
                 ].map((src, i) => (
                   <img
                     key={i}

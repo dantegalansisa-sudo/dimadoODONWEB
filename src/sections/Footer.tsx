@@ -17,6 +17,8 @@ const footerLinks = {
     'Dra. Rossy García',
     'Dra. Jailenny Santos',
     'Dra. Angely Betances',
+    'Dra. Laudi Montero',
+    'Dra. Luisa Rivera',
   ],
   contacto: [
     '📞 809-738-3233',

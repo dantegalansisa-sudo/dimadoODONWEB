@@ -38,6 +38,20 @@ const specialists = [
     placeholder: '/images/Angely  Betances.jpeg',
     badge: 'CIRUGÍA MAXILOFACIAL',
   },
+  {
+    name: 'Dra. Laudi Montero',
+    role: 'ODONTÓLOGA GENERAL',
+    specialty: 'Odontología general',
+    placeholder: '/images/laudi montero, odontóloga general.jpeg',
+    badge: 'ODONTOLOGÍA GENERAL',
+  },
+  {
+    name: 'Dra. Luisa Rivera',
+    role: 'ODONTÓLOGA GENERAL',
+    specialty: 'Odontología general',
+    placeholder: '/images/Luisa rivera y odontóloga general.jpeg',
+    badge: 'ODONTOLOGÍA GENERAL',
+  },
 ];
 
 export default function TeamSection() {
@@ -72,7 +86,7 @@ export default function TeamSection() {
           className="team-grid"
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(5, 1fr)',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))',
             gap: 20,
           }}
         >
