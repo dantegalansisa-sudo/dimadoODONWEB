@@ -30,21 +30,33 @@ export default function HeroSection() {
           background: 'var(--bg-white)',
         }}
       >
-        {/* Background Image */}
+        {/* Background Video */}
         <motion.div
           className="hero-bg-image"
-          initial={{ opacity: 0, scale: 1.04 }}
-          animate={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
           style={{
             position: 'absolute',
             inset: 0,
-            backgroundImage:
-              'url(/images/TEAMS.jpeg)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center right',
+            overflow: 'hidden',
           }}
-        />
+        >
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              objectPosition: 'center right',
+            }}
+          >
+            <source src="/video/Bienvenidos a nuestra clínica familiar✨️ Dimado Centro Odontologico 🤍 donde cuidamos de ti en t.mp4" type="video/mp4" />
+          </video>
+        </motion.div>
 
         {/* Left overlay gradient */}
         <div
