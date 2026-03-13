@@ -9,10 +9,10 @@ const secretarias = [
     photo: '/images/zaidi guzman- secretaria de la plaza liam.jpeg',
   },
   {
-    name: 'Próximamente',
+    name: 'Katherine Maleno',
     role: 'SECRETARIA',
     location: 'Sucursal Los Girasoles',
-    photo: '',
+    photo: '/images/secre girasoles.jpeg',
   },
 ];
 
