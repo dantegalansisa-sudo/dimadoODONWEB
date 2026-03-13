@@ -27,7 +27,7 @@ export default function HeroSection() {
           height: '92vh',
           minHeight: 700,
           maxHeight: 1100,
-          background: '#1A2A3A',
+          background: '#FFFFFF',
         }}
       >
         {/* Background Video */}
@@ -52,7 +52,7 @@ export default function HeroSection() {
               height: '100%',
               objectFit: 'contain',
               objectPosition: 'center center',
-              background: '#1A2A3A',
+              background: '#FFFFFF',
             }}
           >
             <source src="/video/Bienvenidos a nuestra clínica familiar✨️ Dimado Centro Odontologico 🤍 donde cuidamos de ti en t.mp4" type="video/mp4" />
@@ -66,7 +66,7 @@ export default function HeroSection() {
             position: 'absolute',
             inset: 0,
             background:
-              'linear-gradient(90deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.3) 25%, transparent 45%)',
+              'linear-gradient(90deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.7) 30%, rgba(255,255,255,0.1) 60%, transparent 100%)',
             zIndex: 1,
           }}
         />
@@ -83,7 +83,7 @@ export default function HeroSection() {
             justifyContent: 'center',
             padding: '40px 56px 40px',
             maxWidth: 680,
-            textShadow: '0 2px 12px rgba(0,0,0,0.3)',
+            textShadow: 'none',
           }}
         >
           {/* Badge pill */}
@@ -95,8 +95,7 @@ export default function HeroSection() {
               display: 'inline-flex',
               alignItems: 'center',
               gap: 8,
-              background: 'rgba(255,255,255,0.15)',
-              backdropFilter: 'blur(8px)',
+              background: 'var(--blue-pale)',
               borderRadius: 50,
               padding: '8px 18px',
               width: 'fit-content',
@@ -120,7 +119,7 @@ export default function HeroSection() {
                 fontFamily: 'var(--font-body)',
                 fontSize: 12,
                 fontWeight: 600,
-                color: '#FFFFFF',
+                color: 'var(--blue-main)',
                 letterSpacing: '0.05em',
               }}
             >
@@ -137,7 +136,7 @@ export default function HeroSection() {
                   fontStyle: 'italic',
                   fontSize: 'var(--text-hero)',
                   lineHeight: 1.08,
-                  color: '#FFFFFF',
+                  color: 'var(--text-dark)',
                   fontWeight: 400,
                 }}
               >
@@ -173,7 +172,7 @@ export default function HeroSection() {
               fontFamily: 'var(--font-body)',
               fontSize: 16,
               lineHeight: 1.7,
-              color: 'rgba(255,255,255,0.85)',
+              color: 'var(--text-body)',
               maxWidth: 440,
               marginBottom: 32,
             }}
@@ -216,27 +215,26 @@ export default function HeroSection() {
             </button>
             <button
               style={{
-                background: 'rgba(255,255,255,0.15)',
-                backdropFilter: 'blur(4px)',
-                color: '#FFFFFF',
+                background: 'transparent',
+                color: 'var(--text-dark)',
                 fontFamily: 'var(--font-body)',
                 fontWeight: 600,
                 fontSize: 14,
                 padding: '14px 28px',
                 borderRadius: 50,
-                border: '1.5px solid rgba(255,255,255,0.4)',
+                border: '1.5px solid var(--border)',
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: 8,
                 transition: 'all 0.2s',
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = '#FFFFFF';
-                e.currentTarget.style.color = '#FFFFFF';
+                e.currentTarget.style.borderColor = 'var(--blue-mid)';
+                e.currentTarget.style.color = 'var(--blue-mid)';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.4)';
-                e.currentTarget.style.color = '#FFFFFF';
+                e.currentTarget.style.borderColor = 'var(--border)';
+                e.currentTarget.style.color = 'var(--text-dark)';
               }}
             >
               <span style={{ fontSize: 16 }}>&#x1F4C5;</span>
@@ -281,7 +279,7 @@ export default function HeroSection() {
                   fontFamily: 'var(--font-body)',
                   fontWeight: 600,
                   fontSize: 13,
-                  color: '#FFFFFF',
+                  color: 'var(--text-dark)',
                   lineHeight: 1.3,
                 }}
               >
