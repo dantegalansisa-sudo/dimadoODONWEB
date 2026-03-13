@@ -27,7 +27,7 @@ export default function HeroSection() {
           height: '92vh',
           minHeight: 700,
           maxHeight: 1100,
-          background: 'var(--bg-white)',
+          background: '#000',
         }}
       >
         {/* Background Video */}
@@ -50,8 +50,9 @@ export default function HeroSection() {
             style={{
               width: '100%',
               height: '100%',
-              objectFit: 'cover',
+              objectFit: 'contain',
               objectPosition: 'center center',
+              background: '#000',
             }}
           >
             <source src="/video/Bienvenidos a nuestra clínica familiar✨️ Dimado Centro Odontologico 🤍 donde cuidamos de ti en t.mp4" type="video/mp4" />
@@ -65,7 +66,7 @@ export default function HeroSection() {
             position: 'absolute',
             inset: 0,
             background:
-              'linear-gradient(90deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.4) 20%, rgba(255,255,255,0.1) 35%, transparent 50%)',
+              'linear-gradient(90deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.3) 25%, transparent 45%)',
             zIndex: 1,
           }}
         />
@@ -82,7 +83,7 @@ export default function HeroSection() {
             justifyContent: 'center',
             padding: '40px 56px 40px',
             maxWidth: 680,
-            textShadow: '0 1px 8px rgba(255,255,255,0.6)',
+            textShadow: '0 2px 12px rgba(0,0,0,0.3)',
           }}
         >
           {/* Badge pill */}
@@ -94,7 +95,8 @@ export default function HeroSection() {
               display: 'inline-flex',
               alignItems: 'center',
               gap: 8,
-              background: 'var(--blue-pale)',
+              background: 'rgba(255,255,255,0.15)',
+              backdropFilter: 'blur(8px)',
               borderRadius: 50,
               padding: '8px 18px',
               width: 'fit-content',
@@ -118,7 +120,7 @@ export default function HeroSection() {
                 fontFamily: 'var(--font-body)',
                 fontSize: 12,
                 fontWeight: 600,
-                color: 'var(--blue-main)',
+                color: '#FFFFFF',
                 letterSpacing: '0.05em',
               }}
             >
@@ -135,7 +137,7 @@ export default function HeroSection() {
                   fontStyle: 'italic',
                   fontSize: 'var(--text-hero)',
                   lineHeight: 1.08,
-                  color: 'var(--text-dark)',
+                  color: '#FFFFFF',
                   fontWeight: 400,
                 }}
               >
@@ -150,7 +152,7 @@ export default function HeroSection() {
                   {...slideUp(0.55)}
                 >
                   para una{' '}
-                  <span style={{ color: 'var(--blue-mid)' }}>Sonrisa</span>
+                  <span style={{ color: 'var(--cyan)' }}>Sonrisa</span>
                 </motion.span>
                 <motion.span
                   style={{ display: 'block' }}
@@ -171,7 +173,7 @@ export default function HeroSection() {
               fontFamily: 'var(--font-body)',
               fontSize: 16,
               lineHeight: 1.7,
-              color: 'var(--text-body)',
+              color: 'rgba(255,255,255,0.85)',
               maxWidth: 440,
               marginBottom: 32,
             }}
@@ -214,26 +216,27 @@ export default function HeroSection() {
             </button>
             <button
               style={{
-                background: 'transparent',
-                color: 'var(--text-dark)',
+                background: 'rgba(255,255,255,0.15)',
+                backdropFilter: 'blur(4px)',
+                color: '#FFFFFF',
                 fontFamily: 'var(--font-body)',
                 fontWeight: 600,
                 fontSize: 14,
                 padding: '14px 28px',
                 borderRadius: 50,
-                border: '1.5px solid var(--border)',
+                border: '1.5px solid rgba(255,255,255,0.4)',
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: 8,
                 transition: 'all 0.2s',
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = 'var(--blue-mid)';
-                e.currentTarget.style.color = 'var(--blue-mid)';
+                e.currentTarget.style.borderColor = '#FFFFFF';
+                e.currentTarget.style.color = '#FFFFFF';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = 'var(--border)';
-                e.currentTarget.style.color = 'var(--text-dark)';
+                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.4)';
+                e.currentTarget.style.color = '#FFFFFF';
               }}
             >
               <span style={{ fontSize: 16 }}>&#x1F4C5;</span>
@@ -278,7 +281,7 @@ export default function HeroSection() {
                   fontFamily: 'var(--font-body)',
                   fontWeight: 600,
                   fontSize: 13,
-                  color: 'var(--text-dark)',
+                  color: '#FFFFFF',
                   lineHeight: 1.3,
                 }}
               >
@@ -291,7 +294,7 @@ export default function HeroSection() {
                   fontFamily: 'var(--font-body)',
                   fontWeight: 500,
                   fontSize: 12,
-                  color: 'var(--blue-mid)',
+                  color: 'var(--cyan)',
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: 4,

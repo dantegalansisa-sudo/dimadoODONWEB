@@ -9,10 +9,10 @@ const photosMonumental = [
 ];
 
 const photosGirasoles = [
+  { src: '/images/girasoles.jpeg', alt: 'Sucursal Los Girasoles' },
   { src: '/images/girasoles1.jpeg', alt: 'Sucursal Los Girasoles' },
   { src: '/images/girasoles2.jpeg', alt: 'Sucursal Los Girasoles' },
   { src: '/images/girasoles3.jpeg', alt: 'Sucursal Los Girasoles' },
-  { src: '/images/girasoles4.jpeg', alt: 'Sucursal Los Girasoles' },
 ];
 
 function GalleryPhoto({ photo, delay }: { photo: { src: string; alt: string }; delay: number }) {
