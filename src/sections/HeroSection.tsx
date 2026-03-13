@@ -24,9 +24,9 @@ export default function HeroSection() {
           position: 'relative',
           borderRadius: 24,
           overflow: 'hidden',
-          height: '90vh',
-          minHeight: 650,
-          maxHeight: 1000,
+          height: '92vh',
+          minHeight: 700,
+          maxHeight: 1100,
           background: 'var(--bg-white)',
         }}
       >
@@ -65,7 +65,7 @@ export default function HeroSection() {
             position: 'absolute',
             inset: 0,
             background:
-              'linear-gradient(90deg, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.6) 25%, rgba(255,255,255,0.2) 45%, transparent 65%)',
+              'linear-gradient(90deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.4) 20%, rgba(255,255,255,0.1) 35%, transparent 50%)',
             zIndex: 1,
           }}
         />
@@ -82,6 +82,7 @@ export default function HeroSection() {
             justifyContent: 'center',
             padding: '40px 56px 40px',
             maxWidth: 680,
+            textShadow: '0 1px 8px rgba(255,255,255,0.6)',
           }}
         >
           {/* Badge pill */}
