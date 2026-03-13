@@ -52,6 +52,13 @@ const specialists = [
     placeholder: '/images/Luisa rivera y odontóloga general.jpeg',
     badge: 'ODONTOLOGÍA GENERAL',
   },
+  {
+    name: 'Dra. Blanca Aguilera',
+    role: 'ODONTÓLOGA INTEGRAL',
+    specialty: 'Odontología integral',
+    placeholder: '/images/Blanca Aguilera- odontologia integral.jpeg',
+    badge: 'ODONTOLOGÍA INTEGRAL',
+  },
 ];
 
 export default function TeamSection() {

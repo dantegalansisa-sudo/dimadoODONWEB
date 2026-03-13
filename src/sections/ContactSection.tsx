@@ -230,6 +230,7 @@ export default function ContactSection() {
                   '/images/Angely  Betances.jpeg',
                   '/images/laudi montero, odontóloga general.jpeg',
                   '/images/Luisa rivera y odontóloga general.jpeg',
+                  '/images/Blanca Aguilera- odontologia integral.jpeg',
                 ].map((src, i) => (
                   <img
                     key={i}

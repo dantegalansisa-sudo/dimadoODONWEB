@@ -19,6 +19,7 @@ const footerLinks = {
     'Dra. Angely Betances',
     'Dra. Laudi Montero',
     'Dra. Luisa Rivera',
+    'Dra. Blanca Aguilera',
   ],
   contacto: [
     '📞 809-738-3233',
